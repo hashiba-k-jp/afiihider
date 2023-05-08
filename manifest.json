@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Affihider",
-    "version": "1.0.0",
+    "version": "1.1.0",
 
     "description": "Affihider",
     "homepage_url": "https://github.com/hashiba-k-jp/afiihider",
@@ -12,10 +12,15 @@
                 "https://www.google.com/search*"
             ],
             "js": [
-                "content.js"
-            ]
+                "scripts/content.js",
+                "scripts/background.js"
+            ],
+            "$comment": "Why does NOT background.js work?"
         }
     ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
     "web_accessible_resources": [
         {
             "resources" : [
@@ -27,6 +32,12 @@
         }
     ],
     "permissions": [
-        "storage"
-    ]
+        "storage",
+        "scripting",
+        "activeTab",
+        "contextMenus"
+    ],
+    "action": {
+        "default_title": "test"
+    }
 }
