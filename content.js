@@ -1,9 +1,9 @@
 window.addEventListener("load",function() {
-    // const REPLACE_DIV = document.createElement("div");
-    // REPLACE_DIV.innerText = "Here is hided advertisement";
-
     sponsored = document.querySelector("#tvcap");
-    sponsored.innerHTML = "Here is hided advertisement"
-    sponsored.style.align = "center"
-    // とりあえずこんな感じで広告消せそう？
+    sponsored.style.display = "none";
+    taw = document.querySelector("#taw");
+
+    const msg_ad = document.createElement('div');
+    msg_ad.innerText = "Advertisement was hidden...";
+    taw.appendChild(msg_ad);
 });
