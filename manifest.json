@@ -35,9 +35,9 @@
         "storage",
         "scripting",
         "activeTab",
-        "contextMenus"
+        "contextMenus",
+        "nativeMessaging"
     ],
     "action": {
-        "default_title": "test"
     }
 }
