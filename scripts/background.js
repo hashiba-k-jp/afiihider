@@ -48,11 +48,19 @@ function set(info){
     targetUrl = info.linkUrl;
     console.log("[*] set");
     console.log(targetUrl);
+    const entity = {
+        display: "none",
+        target: targetUrl
+    }
+    chrome.storage.local.set(entity, function() {
+        console.log('stored');
+    });
 }
 
 function unset(info){
     targetUrl = info.linkUrl;
     console.log("[*] unset");
     console.log(targetUrl);
+    chrome.storage.local.get(null, data => console.log(data));
+    console.log(data);
 }
-

@@ -1,4 +1,6 @@
 window.addEventListener("load",function() {
+    // chrome.storage.local.get(null, ((data) => {console.log(data)}));
+
     sponsored = document.querySelector("#tvcap");
     if(sponsored.innerHTML !== ""){
         console.log("not empty");
