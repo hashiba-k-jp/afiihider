@@ -48,13 +48,35 @@ function set(info){
     targetUrl = info.linkUrl;
     console.log("[*] set");
     console.log(targetUrl);
+
+    let id;
+    // get length of the local storage inorder to set ID
+    chrome.storage.local.get(null, function(items){
+        console.log(id);
+        id = Object.keys(items).length;
+        console.log(id);
+    });
+
+    //const timeString = Date();
+
     const entity = {
-        display: "none",
-        target: targetUrl
+        [id]:
+            {
+                display: "none",
+                target: targetUrl,
+                //data:timeString
+            }
     }
+    console.log(entity);
+    chrome.storage.local.clear()
     chrome.storage.local.set(entity, function() {
         console.log('stored');
     });
+
+    chrome.storage.local.get(null, function(items){
+        console.log(items);
+    });
+
 }
 
 function unset(info){

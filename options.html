@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <script src="scripts/option.js"></script>
+        <script src="scripts/background_option.js"></script>
 
         <!-- Bootstrap -->
         <!-- https://developer.chrome.com/docs/extensions/migrating/improve-security/#remove-remote-code -->
@@ -15,22 +15,45 @@
         <title>Settings for Affihider</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="#">Affihider</a>
-            <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                </ul>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Affihider</a>
+                </div>
+            </nav>
+        </header>
+        <main class="flex-shrink-0">
+            <div class="container">
+                <h1 class="mt-5">The list</h1>
+                <div class="table-responsive font-monospace">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    </div>
+                                </th>
+                                <th scope="col">#</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    </div>
+                                </td>
+                                <td>N/A</td>
+                                <td>YYYY/MM/DD HH:MM</td>
+                                <td><a href="https://www.example.com" target="_blank" class="link-dark">https://www.example.com</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </nav>
+        </main>
     </body>
 </html>
