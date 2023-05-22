@@ -45,44 +45,65 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 }});
 
 function set(info){
-    targetUrl = info.linkUrl;
     console.log("[*] set");
-    console.log(targetUrl);
 
-    let id;
-    // get length of the local storage inorder to set ID
-    chrome.storage.local.get(null, function(items){
-        console.log(id);
-        id = Object.keys(items).length;
-        console.log(id);
-    });
+/*
+    data =
+    {"affihider":item}
 
-    //const timeString = Date();
-
-    const entity = {
-        [id]:
-            {
-                display: "none",
-                target: targetUrl,
-                //data:timeString
-            }
+    item = {
+        "length":<NUMBER of IDs>,
+        <ID>:{
+            "url":<BLOCKED URL>,
+            "date":<BLOCKED DATE>,
+        },
+        <ID>:{...},
+        <ID>:{...}
     }
-    console.log(entity);
-    chrome.storage.local.clear()
-    chrome.storage.local.set(entity, function() {
-        console.log('stored');
+
+*/
+
+    // get length of the local storage inorder to set ID
+    chrome.storage.local.get("affihider", function(items){
+        item = items.affihider;
+        if(typeof items.affihider === "undefined"){
+            // the first element for "affihider":
+            length = 0;
+            item = {};
+        }else{
+            // second or later elements
+            length = item.length;
+        }
+
+        // for both the first and second or later
+        item.length = length + 1;
+        const newElement = {
+
+                display: "none",
+                target: info.linkUrl,
+                date:"yyyy/mm/dd"
+
+        }
+        item[length] = newElement
+
+        console.log('item is ... :')
+        console.log(item);
+
+        chrome.storage.local.set({"affihider":item}, function() {
+            console.log('[*] stored');
+        });
+
     });
 
-    chrome.storage.local.get(null, function(items){
-        console.log(items);
-    });
+
 
 }
 
 function unset(info){
-    targetUrl = info.linkUrl;
-    console.log("[*] unset");
-    console.log(targetUrl);
-    chrome.storage.local.get(null, data => console.log(data));
-    console.log(data);
+    console.log("[*] load");
+    chrome.storage.local.get(null, function(givenitems){
+        console.log(givenitems);
+    });
+
+    chrome.storage.local.clear()
 }

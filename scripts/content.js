@@ -1,4 +1,7 @@
-window.addEventListener("load",function() {
+window.addEventListener("load", main, false)
+
+
+function main() {
     // chrome.storage.local.get(null, ((data) => {console.log(data)}));
 
     sponsored = document.querySelector("#tvcap");
@@ -13,7 +16,8 @@ window.addEventListener("load",function() {
     }
 
     sponsored.style.display = "none";
-});
+}
+
 
 function setHideUrl(){
     chrome.storage.sync.set({'key': value}, function () {});
